@@ -38,8 +38,17 @@ public:
 	// need to call setTextureRect before this
 	void setLocation(float x, float y)
 	{
-		pos.x = x;
-		pos.y = y;
+		points[0].x = x;
+		points[0].y = y;
+		
+		points[1].x = x + rect.width;
+		points[1].y = y;
+		
+		points[2].x = x  + rect.width;
+		points[2].y = y  + rect.height;
+		
+		points[3].x = x;
+		points[3].y = y  + rect.height;
 	}
 	
 	//make sure to bind() something first!
@@ -47,13 +56,13 @@ public:
 	{
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glTexCoordPointer(2, GL_FLOAT, 0, &texCoords[0]);
-		ofQuad3D(pos.x, pos.y, 0, pos.x + rect.width, pos.y, 0, pos.x + rect.width, pos.y + rect.height, 0, pos.x, pos.y + rect.height, 0);
+		ofQuad3D(points[0], points[1], points[2], points[3]);
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	}
 	
 protected:
 	
-	ofPoint pos;
+	ofPoint points[4];
 	float texCoords[8];
 	
 	ofRectangle rect;
