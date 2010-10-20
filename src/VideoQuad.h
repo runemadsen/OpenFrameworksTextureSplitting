@@ -35,7 +35,7 @@ public:
 		rect.height = h;
 	};
 	
-	// need to call setTextureRect before
+	// need to call setTextureRect before this
 	void setLocation(float x, float y)
 	{
 		points[0].x = x;
@@ -50,15 +50,6 @@ public:
 		points[3].x = x;
 		points[3].y = y  + rect.height;
 	}
-	
-	void setPoint( int which, float x, float y)
-	{
-		points[which].x = x;
-		points[which].y = y;
-		
-		texCoords[which * 2] = x;
-		texCoords[which * 2 + 1] = y;
-	};
 	
 	//make sure to bind() something first!
 	void draw()
