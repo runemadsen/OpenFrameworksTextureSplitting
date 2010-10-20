@@ -47,7 +47,7 @@ public:
 	{
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glTexCoordPointer(2, GL_FLOAT, 0, &texCoords[0]);
-		ofQuad3D(pos, ofPoint(pos.x + rect.width, pos.y), ofPoint(pos.x + rect.width, pos.y + rect.height),  ofPoint(pos.x, pos.y + rect.height));
+		ofQuad3D(pos.x, pos.y, 0, pos.x + rect.width, pos.y, 0, pos.x + rect.width, pos.y + rect.height, 0, pos.x, pos.y + rect.height, 0);
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	}
 	
